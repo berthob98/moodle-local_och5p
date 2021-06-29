@@ -101,6 +101,7 @@ function prepareCourseVideos($videos) {
 function getVideoQualities() {
     $identifier = required_param('identifier', PARAM_TEXT);
     $api = new api();
+    $api->baseurl = 'oc-stream-test.fhws.de';
     $url = '/search/episode.json?id=' . $identifier;
     $search_result = json_decode($api->oc_get($url), true);
     if ($api->get_http_code() != 200) {
